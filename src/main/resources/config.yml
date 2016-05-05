@@ -1,0 +1,15 @@
+settings:
+  logging: true
+  debug: false
+  updates: true
+  metrics: true
+  date-format: MM-dd-YYYY HH:mm:ss
+  db-provider: sqlite
+sqlite:
+  path: plugins/Punishment/punishment.db
+mysql:
+  user: user
+  port: 3306
+  password: pass
+  host: localhost
+  database: database

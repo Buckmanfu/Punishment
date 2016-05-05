@@ -1,0 +1,194 @@
+name: Punishment
+version: 2.0
+description: Punishment provides server staff with basic commands to moderate and keep the server in order.
+author: xDeeKay
+website: http://dev.bukkit.org/bukkit-plugins/punishment/
+main: net.dkcraft.punishment.Main
+commands:
+    ban:
+        description: Ban a player.
+        usage: /ban <player> <time> <reason>
+        permission: punishment.ban
+        permission-message: You do not have permission to do that.
+    bancheck:
+        description: Display a players ban status.
+        usage: /bancheck <player>
+        permission: punishment.ban.check
+        permission-message: You do not have permission to do that.
+    banhistory:
+        description: Display a players ban history.
+        usage: /banhistory <player>
+        permission: punishment.ban.history
+        permission-message: You do not have permission to do that.
+    banimport:
+        description: Import bans from file list.
+        usage: /banimport
+        permission: punishment.ban.import
+        permission-message: You do not have permission to do that.
+    banrecent:
+        description: Display recent server bans.
+        usage: /banrecent <amount>
+        permission: punishment.ban.recent
+        permission-message: You do not have permission to do that.
+    unban:
+        description: Unban a player.
+        usage: /unban <player> <reason>
+        permission: punishment.ban.unban
+        permission-message: You do not have permission to do that.
+    freeze:
+        description: Freeze a player.
+        usage: /freeze <player> <time>
+        permission: punishment.freeze
+        permission-message: You do not have permission to do that.
+    unfreeze:
+        description: Unfreeze a player.
+        usage: /unfreeze <player>
+        permission: punishment.freeze.unfreeze
+        permission-message: You do not have permission to do that.
+    deljail:
+        description: Delete a jail location.
+        aliases: removejail
+        usage: /deljail <jail>
+        permission: punishment.jail.del
+        permission-message: You do not have permission to do that.
+    jail:
+        description: Jail a player.
+        usage: /jail <player> <jail> <time>
+        permission: punishment.jail
+        permission-message: You do not have permission to do that.
+    setjail:
+        description: Set a jail location.
+        aliases: createjail
+        usage: /setjail <jail>
+        permission: punishment.jail.set
+        permission-message: You do not have permission to do that.
+    unjail:
+        description: Unjail a player.
+        usage: /unjail <player>
+        permission: punishment.jail.unjail
+        permission-message: You do not have permission to do that.
+    kick:
+        description: Kick a player.
+        usage: /kick <player> <reason>
+        permission: punishment.kick
+        permission-message: You do not have permission to do that.
+    mute:
+        description: Mute a player.
+        usage: /mute <player> <time>
+        permission: punishment.mute
+        permission-message: You do not have permission to do that.
+    unmute:
+        description: Unmute a player.
+        usage: /unmute <player>
+        permission: punishment.mute.unmute
+        permission-message: You do not have permission to do that.
+    note:
+        description: Note core command.
+        usage: /note <args>
+        permission: punishment.note
+        permission-message: You do not have permission to do that.
+    helpop:
+        description: Create a helpop ticket.
+        usage: /helpop <message>
+        permission: punishment.helpop
+        permission-message: You do not have permission to do that.
+    ticket:
+        description: Ticket core command.
+        usage: /ticket <args>
+        permission: punishment.ticket
+        permission-message: You do not have permission to do that.
+    warn:
+        description: Warn a player.
+        usage: /warn <player> <message>
+        permission: punishment.warn
+        permission-message: You do not have permission to do that.
+    punishment:
+        description: Punishment core command.
+        aliases: pun
+        usage: /punishment <args>
+        permission: punishment.punishment
+        permission-message: You do not have permission to do that.
+permissions:
+   punishment.*:
+     description: Gives access to all punishment permissions.
+     children:
+       punishment.ban.*: true
+       punishment.freeze.*: true
+       punishment.jail.*: true
+       punishment.mute.*: true
+       punishment.note.*: true
+       punishment.ticket.*: true
+       punishment.immune.*: true
+       punishment.punishment.*: true
+   punishment.ban.*:
+     description: Gives access to all ban permissions.
+     children:
+       punishment.ban: true
+       punishment.ban.check: true
+       punishment.ban.history: true
+       punishment.ban.import: true
+       punishment.ban.recent: true
+       punishment.ban.unban: true
+   punishment.freeze.*:
+     description: Gives access to all freeze permissions.
+     children:
+       punishment.freeze: true
+       punishment.freeze.unfreeze: true
+   punishment.jail.*:
+     description: Gives access to all jail permissions.
+     children:
+       punishment.jail.del: true
+       punishment.jail: true
+       punishment.jail.set: true
+       punishment.jail.unjail: true
+   punishment.mute.*:
+     description: Gives access to all mute permissions.
+     children:
+       punishment.mute: true
+       punishment.mute.unmute: true
+   punishment.note.*:
+     description: Gives access to all note permissions.
+     children:
+       punishment.note: true
+       punishment.note.view: true
+       punishment.note.delete: true
+       punishment.note.add: true
+   punishment.ticket.*:
+     description: Gives access to all ticket permissions.
+     children:
+       punishment.ticket: true
+       punishment.ticket.list: true
+       punishment.ticket.create: true
+       punishment.ticket.claim: true
+       punishment.ticket.delete: true
+       punishment.ticket.view: true
+       punishment.ticket.teleport: true
+       punishment.ticket.staff: true
+   punishment.punishment.*:
+     description: Gives access to all punishment child permissions.
+     children:
+       punishment.punishment.help: true
+       punishment.punishment.info: true
+   punishment.immune.*:
+     description: Gives access to all immune permissions.
+     children:
+       punishment.immune.ban: true
+       punishment.immune.freeze: true
+       punishment.immune.jail: true
+       punishment.immune.kick: true
+       punishment.immune.mute: true
+       punishment.immune.warn: true
+   punishment.immune.ban:
+     description: Prevents the player from being banned.
+   punishment.immune.freeze:
+     description: Prevents the player from being frozen.
+   punishment.immune.jail:
+     description: Prevents the player from being jailed.
+   punishment.immune.kick:
+     description: Prevents the player from being kicked.
+   punishment.immune.mute:
+     description: Prevents the player from being muted.
+   punishment.immune.warn:
+     description: Prevents the player from being warned.
+   punishment.ticket.staff:
+     description: Defines the player as a ticket staff.
